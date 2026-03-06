@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 dotenv.config();
 import conn from "./connection/connection.js"
 import userRoutes from "./routes/userRoutes.js";
+import adminRoutes from "./routes/adminAndGuestRoutes.js";
 
 const app = express();
 
@@ -15,6 +16,9 @@ app.use(express.json());
 
 //user signin and signup routes
 app.use("/api/v1/users",userRoutes);
+
+//adding a book by admin
+app.use("/api/v1/admin",adminRoutes)
 
 // Routes
 app.get("/", (req, res) => {
